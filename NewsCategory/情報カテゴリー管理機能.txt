@@ -1,0 +1,43 @@
+情報カテゴリー管理機能
+
+app/Customize/Entity/InformationCategory.php
+app/Customize/Repository/InformationCategoryRepository.php
+app/Customize/Controller/Admin/InformationCategoryController.php
+app/Customize/Form/Type/Admin/InformationCategoryType.php
+
+app/Customize/
+├── Entity/
+│   ├── InformationCategory.php
+│   ├── News.php
+│   └── NewsExtension.php
+├── Repository/
+│   ├── InformationCategoryRepository.php
+│   ├── NewsRepository.php
+│   └── NewsExtensionRepository.php
+├── Controller/
+│   └── Admin/
+│       ├── InformationCategoryController.php
+│       └── Content/
+│           └── NewsController.php
+└── Form/
+    └── Type/
+        └── Admin/
+            ├── InformationCategoryType.php
+            └── NewsType.php
+
+【注意事項】
+①データベースマイグレーション：他のECCUBE4で使用する際は、以下のテーブル作成が必要です：
+・plg_information_category（情報カテゴリー）
+・plg_news_extension（新着情報拡張）
+・plg_news_information_category（関連テーブル）
+②管理画面テンプレート：情報カテゴリー管理用のテンプレートファイルが別途必要になる可能性があります。
+③依存関係：新着情報機能は情報カテゴリー機能に依存しているため、両方セットで流用する必要があります。
+この構造のまま他のECCUBE4プロジェクトのapp/Customize/フォルダにコピーすれば流用できます！
+
+
+「完全に新規作成したファイル：」
+【情報カテゴリー管理機能（全て新規）】
+・app/Customize/Entity/InformationCategory.php
+・app/Customize/Repository/InformationCategoryRepository.php
+・app/Customize/Controller/Admin/InformationCategoryController.php
+・app/Customize/Form/Type/Admin/InformationCategoryType.php

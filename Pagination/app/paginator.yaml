@@ -1,0 +1,15 @@
+info_page:
+    path: /user_data/info
+    controller: Customize\Controller\PaginatorController::info
+
+info_category_page:
+    path: /user_data/info/category/{id}
+    controller: Customize\Controller\PaginatorController::infoByCategory
+    requirements:
+        id: '\d+'
+
+info_detail_page:
+    path: /user_data/info/detail/{id}
+    controller: Customize\Controller\PaginatorController::detail
+    requirements:
+        id: '\d+'

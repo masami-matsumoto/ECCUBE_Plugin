@@ -1,0 +1,58 @@
+新着情報管理追加機能
+
+app/Customize/Entity/News.php
+app/Customize/Entity/NewsExtension.php
+app/Customize/Repository/NewsRepository.php
+app/Customize/Repository/NewsExtensionRepository.php
+app/Customize/Controller/Admin/Content/NewsController.php
+app/Customize/Form/Type/Admin/NewsType.php
+
+app/Customize/
+├── Entity/
+│   ├── InformationCategory.php
+│   ├── News.php
+│   └── NewsExtension.php
+├── Repository/
+│   ├── InformationCategoryRepository.php
+│   ├── NewsRepository.php
+│   └── NewsExtensionRepository.php
+├── Controller/
+│   └── Admin/
+│       ├── InformationCategoryController.php
+│       └── Content/
+│           └── NewsController.php
+└── Form/
+    └── Type/
+        └── Admin/
+            ├── InformationCategoryType.php
+            └── NewsType.php
+
+【注意事項】
+①データベースマイグレーション：他のECCUBE4で使用する際は、以下のテーブル作成が必要です：
+・plg_information_category（情報カテゴリー）
+・plg_news_extension（新着情報拡張）
+・plg_news_information_category（関連テーブル）
+②管理画面テンプレート：情報カテゴリー管理用のテンプレートファイルが別途必要になる可能性があります。
+③依存関係：新着情報機能は情報カテゴリー機能に依存しているため、両方セットで流用する必要があります。
+この構造のまま他のECCUBE4プロジェクトのapp/Customize/フォルダにコピーすれば流用できます！
+
+
+「デフォルトファイルをカスタマイズしたファイル（既存クラス継承）：」
+【新着情報管理追加機能の一部】
+①app/Customize/Entity/News.php
+・Eccube\Entity\News を継承（BaseNews として）
+・情報カテゴリとの関連、画像機能を追加
+②app/Customize/Repository/NewsRepository.php
+・Eccube\Repository\NewsRepository を継承（BaseNewsRepository として）
+・カテゴリ検索機能を追加
+③app/Customize/Controller/Admin/Content/NewsController.php
+・Eccube\Controller\Admin\Content\NewsController を継承（BaseNewsController として）
+・画像アップロード機能を追加
+④app/Customize/Form/Type/Admin/NewsType.php
+・Eccube\Form\Type\Admin\NewsType を継承（BaseNewsType として）
+・カテゴリ選択、画像アップロードフィールドを追加
+
+「完全に新規作成したファイル：」
+【新着情報管理追加機能の一部（新規）】
+・app/Customize/Entity/NewsExtension.php
+・app/Customize/Repository/NewsExtensionRepository.php
